@@ -1,5 +1,5 @@
 nav {
-    margin: 1rem;
+    margin: 1rem 0;
     display: inline-block;
     vertical-align: baseline;
 }
@@ -9,6 +9,10 @@ nav ul {
     text-align: center;
     padding: 0;
     width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
 nav li {

@@ -9,7 +9,7 @@ export const Footer = () => {
           <img src="images/Logo_footer.svg" alt="logo footer" />
         </div>
         <div>
-          <p>{"Doormat\nNavigation"}</p>
+          <p>Doormat Navigation</p>
           <ul>
             <li>
               <a href="/">Home</a>
