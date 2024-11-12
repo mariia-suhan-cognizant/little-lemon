@@ -1,0 +1,33 @@
+nav {
+    margin: 1rem;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+}
+
+nav li {
+    display: inline-block;
+    margin-inline: 1.25rem;
+    vertical-align: middle;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #495e57;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+nav li a:hover,
+nav li a:active {
+    color: #f4ce15;
+    text-decoration: underline;
+}
