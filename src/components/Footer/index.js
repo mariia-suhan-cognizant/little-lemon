@@ -6,7 +6,7 @@ export const Footer = () => {
     <footer>
       <Layout>
         <div>
-          <img src="images/Logo_footer.svg" alt="logo footer" />
+          <img src="images/logo2.svg" alt="logo footer" />
         </div>
         <div>
           <p>Doormat Navigation</p>

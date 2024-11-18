@@ -1,16 +1,16 @@
 import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
 import { Main } from "./components/Main";
 import { Nav } from "./components/Nav";
-import { Layout } from "./components/Layout";
 import "./App.css";
+import { Layout } from "./components/Layout";
 
 function App() {
   return (
     <>
       <Layout>
-        <Header></Header>
-        <Nav></Nav>
+        <header>
+          <Nav></Nav>
+        </header>
       </Layout>
       <Main></Main>
       <Footer></Footer>
