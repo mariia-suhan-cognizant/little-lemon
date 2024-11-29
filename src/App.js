@@ -1,8 +1,8 @@
 import { Footer } from "./components/Footer";
 import { Main } from "./components/Main";
 import { Nav } from "./components/Nav";
-import "./App.css";
 import { Layout } from "./components/Layout";
+import "./App.css";
 
 function App() {
   return (
