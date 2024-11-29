@@ -1,51 +1,55 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
 
-export const BookingForm = () => {
-  const [availableTimes] = useState([
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-    "22:00",
-  ]);
-
+export const BookingForm = ({
+  availableTimes,
+  onChangeResDate,
+  onSubmitForm,
+}) => {
   const [resDate, setResDate] = useState("");
-
-  const onChangeResDate = (event) => {
-    setResDate(event.currentTarget?.value || "");
-  };
 
   const [resTime, setResTime] = useState("");
 
-  const onChangeResTime = (event) => {
-    setResTime(event.currentTarget?.value || "");
-  };
-
   const [guestsNumber, setGuestsNumber] = useState(1);
-
-  const onChangeGuestsNumber = (event) => {
-    setGuestsNumber(event.currentTarget?.value || 1);
-  };
 
   const [occasion, setOccasion] = useState("");
 
-  const onChangeOccasion = (event) => {
-    setOccasion(event.currentTarget?.value || "");
+  useEffect(() => {
+    onChangeResDate(resDate);
+  }, [onChangeResDate, resDate]);
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    if (onSubmitForm)
+      onSubmitForm({
+        resDate,
+        resTime,
+        guestsNumber,
+        occasion,
+      });
   };
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={onSubmit}>
       <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
         id="res-date"
         value={resDate}
-        onChange={onChangeResDate}
+        required={true}
+        onChange={(event) => {
+          setResDate(event.currentTarget?.value || "");
+        }}
       />
       <label htmlFor="res-time">Choose time</label>
-      <select id="res-time" value={resTime} onChange={onChangeResTime}>
+      <select
+        id="res-time"
+        value={resTime}
+        onChange={(event) => {
+          setResTime(event.currentTarget?.value || "");
+        }}
+      >
         {availableTimes.map((availableTime) => (
           <option key={availableTime}>{availableTime}</option>
         ))}
@@ -58,14 +62,26 @@ export const BookingForm = () => {
         max="10"
         id="guests"
         value={guestsNumber}
-        onChange={onChangeGuestsNumber}
+        onChange={(event) => {
+          setGuestsNumber(event.currentTarget?.value || 1);
+        }}
       />
       <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" value={occasion} onChange={onChangeOccasion}>
+      <select
+        id="occasion"
+        value={occasion}
+        onChange={(event) => {
+          setOccasion(event.currentTarget?.value || "");
+        }}
+      >
         <option>Anniversary</option>
         <option>Birthday</option>
       </select>
-      <input type="submit" value="Make Your reservation" />
+      <input
+        type="submit"
+        data-testid="make-reservation"
+        value="Make Your reservation"
+      />
     </form>
   );
 };
