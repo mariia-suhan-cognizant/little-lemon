@@ -13,12 +13,12 @@ test("Renders the BookingForm heading", () => {
 });
 
 test("Submits form", () => {
-  const onSubmitForm = jest.fn();
+  const submitForm = jest.fn();
   render(
     <BookingForm
       availableTimes={["17:00", "18:00"]}
       onChangeResDate={jest.fn()}
-      onSubmitForm={onSubmitForm}
+      submitForm={submitForm}
     />
   );
 
@@ -29,7 +29,7 @@ test("Submits form", () => {
   fireEvent.click(btn);
 
   // test assumption
-  expect(onSubmitForm).toHaveBeenCalledWith({
+  expect(submitForm).toHaveBeenCalledWith({
     guestsNumber: 1,
     occasion: "",
     resDate: "",

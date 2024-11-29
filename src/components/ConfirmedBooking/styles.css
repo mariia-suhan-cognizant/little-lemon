@@ -1,0 +1,12 @@
+.booking-confirmed {
+    padding: 48px 0;
+}
+
+.booking-confirmed h3 {
+    font-family: 'Markazi Text';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+}

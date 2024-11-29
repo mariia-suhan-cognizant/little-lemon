@@ -4,7 +4,7 @@ import "./styles.css";
 export const BookingForm = ({
   availableTimes,
   onChangeResDate,
-  onSubmitForm,
+  submitForm,
 }) => {
   const [resDate, setResDate] = useState("");
 
@@ -21,8 +21,8 @@ export const BookingForm = ({
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if (onSubmitForm)
-      onSubmitForm({
+    if (submitForm)
+      submitForm({
         resDate,
         resTime,
         guestsNumber,

@@ -1,26 +1,46 @@
-import { useReducer } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useCallback, useReducer } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { BookingPage } from "../BookingPage";
 import { HomePage } from "../HomePage";
+import { ConfirmedBooking } from "../ConfirmedBooking";
+import { fetchAPI, submitAPI } from "../../api";
 
-export const initializeTimes = () => {
-  return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+export const initializeTimes = (date) => () => {
+  try {
+    const availableTimes = fetchAPI(date);
+    return availableTimes;
+  } catch {
+    return [];
+  }
 };
 
 export const updateTimes = (state, { resDate }) => {
-  return state;
+  const availableTimes = fetchAPI(new Date(resDate));
+  return availableTimes;
 };
 
 export const Main = () => {
+  const navigate = useNavigate();
+
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
     null,
-    initializeTimes
+    initializeTimes(new Date())
   );
 
-  const onChangeResDate = (resDate) => {
+  const onChangeResDate = useCallback((resDate) => {
     dispatch({ resDate });
-  };
+  }, []);
+
+  const submitForm = useCallback(
+    (formData) => {
+      const res = submitAPI(formData);
+      if (res === true) {
+        navigate("/booking/confirmed");
+      }
+    },
+    [navigate]
+  );
 
   return (
     <main>
@@ -32,9 +52,11 @@ export const Main = () => {
             <BookingPage
               availableTimes={availableTimes}
               onChangeResDate={onChangeResDate}
+              submitForm={submitForm}
             />
           }
         ></Route>
+        <Route path="/booking/confirmed" element={<ConfirmedBooking />}></Route>
       </Routes>
     </main>
   );
