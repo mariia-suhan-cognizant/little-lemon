@@ -41,6 +41,7 @@ export const BookingForm = ({
         data-testid="res-date"
         value={resDate}
         required={true}
+        aria-required="true"
         onChange={(event) => {
           setResDate(event.currentTarget?.value || "");
         }}
@@ -51,6 +52,7 @@ export const BookingForm = ({
         data-testid="res-time"
         value={resTime}
         required={true}
+        aria-required="true"
         onChange={(event) => {
           setResTime(event.currentTarget?.value || "");
         }}
@@ -77,6 +79,7 @@ export const BookingForm = ({
         id="occasion"
         data-testid="occasion"
         required={true}
+        aria-required="true"
         value={occasion}
         onChange={(event) => {
           setOccasion(event.currentTarget?.value || "");
@@ -87,6 +90,7 @@ export const BookingForm = ({
       </select>
       <input
         type="submit"
+        aria-label="Make Your reservation"
         data-testid="make-reservation"
         value="Make Your reservation"
       />
