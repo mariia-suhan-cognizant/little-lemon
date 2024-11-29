@@ -1,9 +1,14 @@
 import { Button } from "../Button";
 import { Layout } from "../Layout";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 export const CallToAction = () => {
-  const onReserveTable = () => {};
+  const navigate = useNavigate();
+
+  const onReserveTable = () => {
+    navigate("/booking");
+  };
 
   return (
     <div className="hero">

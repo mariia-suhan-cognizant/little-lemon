@@ -1,3 +1,10 @@
+import { BookingForm } from "../BookingForm";
+import { Layout } from "../Layout";
+
 export const BookingPage = () => {
-  return null;
+  return (
+    <Layout>
+      <BookingForm />
+    </Layout>
+  );
 };

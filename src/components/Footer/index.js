@@ -21,7 +21,7 @@ export const Footer = () => {
               <a href="/menu">Menu</a>
             </li>
             <li>
-              <a href="/book">Reservations</a>
+              <a href="/booking">Reservations</a>
             </li>
             <li>
               <a href="/online">Order online</a>
